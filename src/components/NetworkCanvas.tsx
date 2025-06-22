@@ -56,10 +56,12 @@ const NetworkCanvas = () => {
         index++;
         animatePacket();
         console.log(packetPath);
-      }, 5000);
+      }, 2000);
+      setTimeout(() =>{
+        setMessage(MESSAGES.PACKET)
+      }, 4000)
     }
     animatePacket();
-    setMessage(MESSAGES.PACKET);
   };
   //logic to create a node in the canvas
   const handleCanvasClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -292,7 +294,10 @@ const NetworkCanvas = () => {
         </button>
         {mode === "PACKET" && (
           <button
-            onClick={() => handlePacketSend()}
+            onClick={() => {
+              handlePacketSend()
+            }
+          }
             className={`w-[1/4] px-6 py-6 text-2xl rounded-lg border-2 cursor-pointer focus:bg-green-300`}
           >
             Send Packet
